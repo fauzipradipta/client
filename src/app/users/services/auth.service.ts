@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Register } from '../models/register';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-
+import { Login } from '../models/login';
 const headerData = {
   headers: { 'Content-Type': 'application/json' },
 };
@@ -17,5 +17,9 @@ export class AuthService {
 
   registerUser(register: Register): Observable<any> {
     return this.httpClient.post(this.api + 'register', register, headerData);
+  }
+
+  loginUser(login: Login): Observable<any> {
+    return this.httpClient.post(this.api + 'login', login, headerData);
   }
 }
