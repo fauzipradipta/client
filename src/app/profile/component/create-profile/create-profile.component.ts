@@ -25,8 +25,11 @@ export class CreateProfileComponent implements OnInit {
         this.router.navigate(['/dashboard']);
       },
       (err) => {
-        console.log(JSON.stringify(err));
-        this.error = err.error;
+        //handle the error
+        // console.log(JSON.stringify(err));
+        if (this.error == null) this.error = err.error;
+        else this.error = err;
+        // this.error = err.error;
       }
     );
   }

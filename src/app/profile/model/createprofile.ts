@@ -1,5 +1,6 @@
 export class Createprofile {
-  profStatus: string;
+  handle: string;
+  status: string;
   company: string;
   website: string;
   location: string;
