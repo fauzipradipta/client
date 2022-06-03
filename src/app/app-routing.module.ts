@@ -20,6 +20,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./dashboard/dashboard.module').then((m) => m.DashboardModule), //to load user module dynamically  ===>()Class.forName() in java
   },
+  {
+    path: 'profile',
+    loadChildren: () =>
+      import('./profile/profile.module').then((m) => m.ProfileModule), //to load user module dynamically  ===>()Class.forName() in java
+  },
 ];
 
 @NgModule({
