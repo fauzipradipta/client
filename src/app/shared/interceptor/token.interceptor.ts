@@ -22,7 +22,7 @@ export class TokenInterceptor implements HttpInterceptor {
     console.log(jwt_decode(token || ''));
 
     let decoded: any = jwt_decode(token || '');
-    console.log(decoded);
+    console.log(decoded.exp);
     //except login and register we have to add token for every rest api request
 
     // before add the token:===> we should validate the token by extracting expiry of the tokens
@@ -30,15 +30,19 @@ export class TokenInterceptor implements HttpInterceptor {
     //then we should redirect to the login page
 
     if (request.url.includes('login') || request.url.includes('register')) {
-      console.log('register/login detected');
+      console.log('inside the login and register condition');
       return next.handle(request);
     }
 
     //if there is no token we should redirect to the login page
     if (token == null || token.length == 0) {
       this.router.navigate(['/users/login']);
+      return next.handle(request);
     }
-
+    request = request.clone({
+      headers: request.headers.set('authorization', token),
+    });
+    //will help us modify the req.
     return next.handle(request);
   }
 }

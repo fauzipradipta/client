@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
     this.authService.loginUser(this.login).subscribe((response) => {
       console.log(response.token);
       localStorage.setItem('token', response.token);
+      this.router.navigate(['/dashboard']); //routing path for dashboard module and component
     });
   }
 }
