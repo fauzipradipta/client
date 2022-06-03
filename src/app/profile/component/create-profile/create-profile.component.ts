@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../../../users/services/auth.service';
 import { Createprofile } from '../../model/createprofile';
+import { ProfileService } from '../../services/profile.service';
 
 @Component({
   selector: 'app-create-profile',
@@ -12,11 +12,22 @@ export class CreateProfileComponent implements OnInit {
   createProfile: Createprofile = new Createprofile();
   error: any = {};
 
-  constructor() {}
+  constructor(private profileService: ProfileService, private router: Router) {}
 
   ngOnInit(): void {}
 
   createProfileSubmit() {
-    console.log(JSON.stringify(this.createProfile));
+    //console.log(JSON.stringify(this.createProfile));
+    this.profileService.createProfile(this.createProfile).subscribe(
+      (res) => {
+        console.log(JSON.stringify(res));
+        //navigate to dashboard
+        this.router.navigate(['/dashboard']);
+      },
+      (err) => {
+        console.log(JSON.stringify(err));
+        this.error = err.error;
+      }
+    );
   }
 }
