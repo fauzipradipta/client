@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Experience } from 'src/app/model/experience';
 
 @Component({
@@ -8,8 +8,15 @@ import { Experience } from 'src/app/model/experience';
 })
 export class DisplayExpComponent implements OnInit {
   @Input('exp')
-  exp: Experience[] = [];
+  exp: any = [];
+  @Output()
+  expId: EventEmitter<string> = new EventEmitter<string>();
   constructor() {}
 
   ngOnInit(): void {}
+
+  deleteExp(id: string): void {
+    console.log('In Child ' + id);
+    this.expId.emit(id);
+  }
 }

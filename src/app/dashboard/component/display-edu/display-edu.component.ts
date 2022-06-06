@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Education } from 'src/app/model/education';
 
 @Component({
@@ -8,8 +8,15 @@ import { Education } from 'src/app/model/education';
 })
 export class DisplayEduComponent implements OnInit {
   @Input()
-  edu: Education[] = [];
+  edu: any = [];
+  @Output()
+  eduId: EventEmitter<string> = new EventEmitter<string>();
   constructor() {}
 
   ngOnInit(): void {}
+
+  deleteEdu(id: string): void {
+    console.log('In Child ' + id);
+    this.eduId.emit(id);
+  }
 }

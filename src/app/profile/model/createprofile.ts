@@ -15,7 +15,7 @@ export class Createprofile {
   youtubeUrl: string;
   linkedinUrl: string;
   instagramUrl: string;
-  experience: Experience[];
-  education: Education[];
+  // experience: Experience[];
+  // education: Education[];
   user: any;
 }

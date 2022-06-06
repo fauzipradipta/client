@@ -22,7 +22,9 @@
           {{ e.to }}
         </td>
         <td>
-          <button class="btn btn-danger">Delete</button>
+          <button class="btn btn-danger" (click)="deleteExp(e._id)">
+            Delete
+          </button>
         </td>
       </tr>
     </tbody>
