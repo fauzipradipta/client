@@ -1,10 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddEducationComponent } from './component/add-education/add-education.component';
+import { AddExperienceComponent } from './component/add-experience/add-experience.component';
 import { CreateProfileComponent } from './component/create-profile/create-profile.component';
 const routes: Routes = [
   {
     path: 'create-profile',
     component: CreateProfileComponent,
+  },
+  {
+    path: 'experience',
+    component: AddExperienceComponent,
+  },
+  {
+    path: 'education',
+    component: AddEducationComponent,
   },
 ];
 

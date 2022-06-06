@@ -1,3 +1,6 @@
+import { Education } from 'src/app/model/education';
+import { Experience } from 'src/app/model/experience';
+
 export class Createprofile {
   handle: string;
   status: string;
@@ -12,4 +15,7 @@ export class Createprofile {
   youtubeUrl: string;
   linkedinUrl: string;
   instagramUrl: string;
+  experience: Experience[];
+  education: Education[];
+  user: any;
 }

@@ -7,9 +7,11 @@ import { ProfileService } from './services/profile.service';
 import { httpInterceptor } from '../shared/interceptor';
 import { CreateProfileComponent } from './component/create-profile/create-profile.component';
 import { FormsModule } from '@angular/forms';
+import { AddEducationComponent } from './component/add-education/add-education.component';
+import { AddExperienceComponent } from './component/add-experience/add-experience.component';
 
 @NgModule({
-  declarations: [CreateProfileComponent],
+  declarations: [CreateProfileComponent, AddEducationComponent, AddExperienceComponent],
   imports: [CommonModule, ProfileRoutingModule, HttpClientModule, FormsModule],
   providers: [ProfileService, httpInterceptor],
 })

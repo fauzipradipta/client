@@ -6,9 +6,17 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { ProfileService } from '../profile/services/profile.service';
 import { HttpClientModule } from '@angular/common/http';
 import { httpInterceptor } from '../shared/interceptor';
+import { DashboardActionComponent } from './component/dashboard-action/dashboard-action.component';
+import { DisplayExpComponent } from './component/display-exp/display-exp.component';
+import { DisplayEduComponent } from './component/display-edu/display-edu.component';
 
 @NgModule({
-  declarations: [DashboardComponent],
+  declarations: [
+    DashboardComponent,
+    DashboardActionComponent,
+    DisplayExpComponent,
+    DisplayEduComponent,
+  ],
   imports: [CommonModule, HttpClientModule, DashboardRoutingModule],
   providers: [ProfileService, httpInterceptor],
 })
